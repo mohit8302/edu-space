@@ -1,0 +1,100 @@
+.navBarContainer{
+    padding: 15px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.navBarLeft, .navBarRight{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#menuIcon{
+    color: #d0d0d0;
+}
+#menuIcon:hover{
+    color: black;
+}
+.searchContainer{
+    display: flex;
+    align-items: center;
+    background-color: #f5f6fa;
+    padding: 10px 15px;
+    border-radius: 40px;
+}
+.searchIcon{
+    color: #d0d0d0;
+}
+#searchInput{
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    background-color: transparent;
+    font-weight: 500;
+}
+#searchButton{
+    padding: 5px 20px;
+    border: 1px solid #d0d0d0;
+    background-color: white;
+    color: #d0d0d0;
+    border-radius: 20px;    
+    cursor: pointer;
+}
+
+.navBarRight{
+   gap: 30px; 
+}
+#notification_icon{
+    width: 20px;
+    height: auto;
+}
+.profileIconContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#userAvatar{
+    width: 35px;
+}
+#name{
+    font-size: 15px;
+    font-weight: 500;
+    color: #606060;
+}
+#role{
+    font-size: 10px;
+    font-weight: 600;
+    color: #4880ff;
+}
+
+.navMenuContainer{
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    right: 1%;
+    top: 100%;
+    border: 1px solid #e4e4e4;
+}
+.navMenuContainer ul li{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #e4e4e4;
+    color: #404040;
+}
+.navMenuContainer ul li:hover{
+    background-color: #f8f8f8;
+}
+.navMenuContainer ul li:last-of-type{
+    border-bottom: none;
+}
+.navMenuIcon{
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+}

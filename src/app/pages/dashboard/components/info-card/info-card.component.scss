@@ -1,0 +1,29 @@
+.info_card{
+    background-color: white;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 54px rgba(0, 0, 0, 0.05);
+}
+
+.info_card_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.subTitle{
+    font-size: 16px;
+    opacity: .7;
+}
+.value{
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.card_icon{
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    position: relative;
+}

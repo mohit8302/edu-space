@@ -1,0 +1,28 @@
+<div class="navBarContainer">
+    <div class="navBarLeft">
+        <mat-icon fontIcon="menu" id="menuIcon" />
+        <div class="searchContainer">
+            <mat-icon fontIcon="search" class="searchIcon" />
+            <input type="text" placeholder="Ask me anything" id="searchInput">
+            <button id="searchButton">Search</button>
+        </div>
+    </div>
+    <div class="navBarRight">
+        <img src="assets/icons/notification_icon.png" alt="" id="notification_icon">
+        <div class="profileIconContainer" (click)="toggleMenu()">
+            <img src="assets/icons/person.png" alt="" id="userAvatar">
+            <div>
+                <h5 id="name">John Doe</h5>
+                <h6 id="role">Admin</h6>
+            </div>
+        </div>
+    </div>
+    <div class="navMenuContainer" *ngIf="showMenu">
+        <ul>
+            <li><img class="navMenuIcon" src="assets/icons/manage_account.png" alt=""><span>Manage Account</span></li>
+            <li><img class="navMenuIcon" src="assets/icons/change_password.png" alt=""><span>Change Password</span></li>
+            <li><img class="navMenuIcon" src="assets/icons/activity_log.png" alt=""><span>Activity Log</span></li>
+            <li><img class="navMenuIcon" src="assets/icons/log_out.png" alt=""><span>Log out</span></li>
+        </ul>
+    </div>
+</div>

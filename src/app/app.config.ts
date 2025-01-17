@@ -7,5 +7,5 @@ import { provideStore } from '@ngrx/store';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideStore(), provideAnimationsAsync('noop')]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideStore(), provideAnimationsAsync('noop'), provideAnimationsAsync(), provideAnimationsAsync()]
 };

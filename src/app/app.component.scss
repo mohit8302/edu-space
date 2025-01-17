@@ -1,0 +1,15 @@
+.main{
+    display: flex;
+}
+
+.sidebarContainer{
+    width: 15%;
+}
+.contentContainer{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.routeComponents{
+    padding: 25px;
+}
