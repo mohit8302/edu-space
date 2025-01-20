@@ -1,0 +1,33 @@
+<div class="w-full flex gap-3">
+  <div class="flex-grow rounded-full p-1" [ngStyle]="{ 'background-color': randomColor }"></div>
+  <div>
+    <div class="flex items-center justify-between">
+      <h1 class="text-lg font-[500]">Demo School 1</h1>
+      <div class="text-end">
+        <h6 class="text-[10px] font-medium">Message received</h6>
+        <h4 class="text-base font-light opacity-50">2024-09-08 04:10</h4>
+      </div>
+    </div>
+    <div>
+      <h5 class="text-md">John Doe</h5>
+      <h6 class="text-[10px] opacity-50">Headmaster</h6>
+    </div>
+    <div>
+      <p class="text-sm mt-2 font-light line-clamp-3" [ngClass]="{ 'line-clamp-none': isFullTextVisible }">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo
+        reiciendis itaque, a non, sit porro fuga magni aspernatur dolores
+        repellendus totam explicabo perferendis, architecto qui nulla
+        voluptatibus dolor id possimus. Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Nemo, molestias!
+      </p>
+      <span class="text-xs text-blue-500 cursor-pointer" (click)="toggleTextVisibility()">
+        {{ isFullTextVisible ? 'view less' : 'view more' }}
+      </span>
+    </div>
+    <div class="flex items-center gap-3 mt-3">
+      <button class="button">Details</button>
+      <button class="button">Reply</button>
+      <button class="button">Mark fixed</button>
+    </div>
+  </div>
+</div>

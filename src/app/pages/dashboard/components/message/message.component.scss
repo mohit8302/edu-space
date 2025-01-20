@@ -1,0 +1,33 @@
+.button{
+    border-radius: 20px;
+    width: fit-content;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px;
+    width: 30%;
+    border: 2px solid #4880FF;
+    color: #4880FF;
+
+    &:hover{
+        background-color: #4880FF;
+        color: white;
+    }
+}
+.button:nth-of-type(2){
+    color: #FFB800;
+    border-color: #FFB800;
+
+    &:hover{
+        background-color: #FFB800;
+        color: white;
+    }
+}
+.button:nth-of-type(3){
+    color: #00B69B;
+    border-color: #00B69B;
+
+    &:hover{
+        background-color: #00B69B;
+        color: white;
+    }
+}

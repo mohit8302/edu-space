@@ -46,31 +46,43 @@
       />
     </div>
   </div>
-  <div class="content">
-    <div class="content_left">
-      <h4 class="title">Top performing schools</h4>
-      <div id="dropdown_bar">
-        <select
-          name="analysis_type"
-          id="analysis_type"
-          class="graph_filter_dropdown"
-        >
-          <option value="">School Analysis</option>
-          <option value="">Users Analysis</option>
-          <option value="">Attendance Analysis</option>
-          <option value="">Message Analysis</option>
-        </select>
-        <select name="chart_type" id="chart_type" class="graph_filter_dropdown">
-          <option value="">Bar Chart</option>
-          <option value="">Line Chart</option>
-        </select>
-      </div>
-      <div class="graph_container">
-        <div class="export_btns_bar">
-          <button>Export PDF</button>
-          <button>Export CSV</button>
+  <div class="content_wrapper">
+    <div class="content_header">
+      <div class="content_left_header">
+        <h4 class="title">Top performing schools</h4>
+        <div id="dropdown_bar">
+          <select
+            name="analysis_type"
+            id="analysis_type"
+            class="graph_filter_dropdown"
+          >
+            <option value="">School Analysis</option>
+            <option value="">Users Analysis</option>
+            <option value="">Attendance Analysis</option>
+            <option value="">Message Analysis</option>
+          </select>
+          <select name="chart_type" id="chart_type" class="graph_filter_dropdown">
+            <option value="">Bar Chart</option>
+            <option value="">Line Chart</option>
+          </select>
         </div>
-        <app-kpi-graph />
+      </div>
+      <div class="content_right_header">
+        <h4 class="title">Messages</h4>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_left">
+        <div class="graph_container">
+          <div class="export_btns_bar">
+            <button>Export PDF</button>
+            <button>Export CSV</button>
+          </div>
+          <app-kpi-graph />
+        </div>
+      </div>
+      <div class="content_right">
+        <app-messages />
       </div>
     </div>
   </div>
