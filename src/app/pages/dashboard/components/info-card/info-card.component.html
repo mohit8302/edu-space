@@ -1,17 +1,19 @@
 <div class="info_card">
   <div class="info_card_header">
     <div>
-      <p class="subTitle">Total Schools</p>
-      <p class="value">406</p>
+      <p class="subTitle">{{ title }}</p>
+      <p class="value">{{ value }}</p>
     </div>
-    <div class="card_icon_container">
-      <img src="assets/icons/total_schools_icon.png" alt="" class="card_icon" />
+    <div class="card_icon_container" [ngStyle]="{'background-color': iconBg}">
+      <img [src]="getIconSrc()" alt="" class="card_icon" />
     </div>
   </div>
   <div class="card_description_container">
     <p class="card_description">
-      <mat-icon fontIcon="trending_up" />
-      <span><span>12.5</span>% Up from last month</span>
+      <mat-icon [fontIcon]="trendIcon" [ngStyle]="{ 'color': trendColor }"></mat-icon>
+      <span style="color: #606060; font-size: 13px;">
+        <span [ngStyle]="{ 'color': trendColor, 'font-weight': 500 }">{{ trendText }}</span> {{ description }}
+      </span>
     </p>
   </div>
 </div>

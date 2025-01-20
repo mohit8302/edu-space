@@ -1,8 +1,77 @@
 <div>
+  <div>
     <div class="header">
-        <h1 class="title">Dashboard</h1>
+      <h1 class="title">Dashboard</h1>
     </div>
     <div class="info_bar">
-        <app-kpi-graph />
+      <app-info-card
+        title="Total Schools"
+        value="406"
+        iconSrc="total_schools_icon"
+        iconBg="rgba(130, 128, 255, .3)"
+        description="Up from last month"
+        trendIcon="trending_up"
+        trendColor="#00B69B"
+        trendText="8.5%"
+      />
+      <app-info-card
+        title="Total Users"
+        value="1,335"
+        iconSrc="total_users_icon"
+        iconBg="rgba(254, 197, 61, .3)"
+        description="Up from last month"
+        trendIcon="trending_up"
+        trendColor="#00B69B"
+        trendText="12.5%"
+      />
+      <app-info-card
+        title="Average Attendance"
+        value="97.75%"
+        iconSrc="average_attendance_icon"
+        iconBg="rgba(255, 144, 102, .3)"
+        description="Down from last month"
+        trendIcon="trending_down"
+        trendColor="#F93C65"
+        trendText="9.3%"
+      />
+      <app-info-card
+        title="Received Messages"
+        value="2,347"
+        iconSrc="received_messages_icon"
+        iconBg="rgba(74, 217, 145, .3)"
+        description="Up from last month"
+        trendIcon="trending_up"
+        trendColor="#00B69B"
+        trendText="17.5%"
+      />
     </div>
+  </div>
+  <div class="content">
+    <div class="content_left">
+      <h4 class="title">Top performing schools</h4>
+      <div id="dropdown_bar">
+        <select
+          name="analysis_type"
+          id="analysis_type"
+          class="graph_filter_dropdown"
+        >
+          <option value="">School Analysis</option>
+          <option value="">Users Analysis</option>
+          <option value="">Attendance Analysis</option>
+          <option value="">Message Analysis</option>
+        </select>
+        <select name="chart_type" id="chart_type" class="graph_filter_dropdown">
+          <option value="">Bar Chart</option>
+          <option value="">Line Chart</option>
+        </select>
+      </div>
+      <div class="graph_container">
+        <div class="export_btns_bar">
+          <button>Export PDF</button>
+          <button>Export CSV</button>
+        </div>
+        <app-kpi-graph />
+      </div>
+    </div>
+  </div>
 </div>
