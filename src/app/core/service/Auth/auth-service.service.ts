@@ -1,34 +1,17 @@
-// auth.service.ts
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _isAuthenticated: boolean = false;
+  private apiUrl = 'https://localhost:8080/';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  // Getter for isAuthenticated
-  get isAuthenticated(): boolean {
-    return this._isAuthenticated;
-  }
-
-  // Setter for isAuthenticated
-  set isAuthenticated(status: boolean) {
-    this._isAuthenticated = status;
-  }
-
-  login() {
-    this.isAuthenticated = true;
-  }
-
-  logout() {
-    this.isAuthenticated = false;
-  }
-
-  // Other methods
-  getAuthToken(): string {
-    return localStorage.getItem('authToken') || '';
+  login(email: string, password: string): Observable<any> {
+    const payload = { email, password };
+    return this.http.post(`${this.apiUrl}/auth/login`, payload);
   }
 }
