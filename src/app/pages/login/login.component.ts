@@ -20,7 +20,7 @@ export class LoginComponent {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    this.authService.signin(this.email, this.password).subscribe({
+    this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
         console.log('Login successful:', response);
       },
