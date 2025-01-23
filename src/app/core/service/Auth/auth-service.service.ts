@@ -12,6 +12,6 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
     const payload = { email, password };
-    return this.http.post(`${this.apiUrl}/auth/login`, payload);
+    return this.http.post(`${this.apiUrl}/auth/login`, payload); // Ensure URL uses backticks
   }
 }
