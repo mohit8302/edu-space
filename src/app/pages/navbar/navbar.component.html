@@ -17,6 +17,16 @@
         <h4>Login</h4>
       </div>
     </li>
+    <li [routerLink]="['/signup']">
+      <div
+        class="navItem"
+        routerLinkActive="activeNavItem"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <mat-icon fontIcon="login"></mat-icon>
+        <h4>Signup</h4>
+      </div>
+    </li>
   </div>
   <div class="navBarRight">
     <img

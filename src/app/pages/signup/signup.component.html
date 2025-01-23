@@ -1,0 +1,27 @@
+<div>
+  <h1>Sign Up</h1>
+  <form (submit)="onSubmit($event)">
+    <input
+      type="text"
+      name="firstName"
+      placeholder="Username"
+      [(ngModel)]="username"
+      required
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      [(ngModel)]="email"
+      required
+    />
+    <input
+      type="password"
+      name="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+      required
+    />
+    <button type="submit">Sign Up</button>
+  </form>
+</div>

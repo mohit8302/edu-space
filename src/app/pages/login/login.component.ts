@@ -14,12 +14,13 @@ import { AuthService } from '../../core/service/Auth/auth-service.service';
 export class LoginComponent {
   email = '';
   password = '';
+  username = '';
 
   constructor(private authService: AuthService) {}
 
   onSubmit(event: Event) {
     event.preventDefault();
-    this.authService.login(this.email, this.password).subscribe({
+    this.authService.signin(this.email, this.password).subscribe({
       next: (response) => {
         console.log('Login successful:', response);
       },
