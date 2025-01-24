@@ -6,12 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:8055';
+  private apiUrl = 'https://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string): Observable<any> {
+  signup(email: string, password: string, username: string) {
+    const payload = { email, password, username };
+    return this.http.post(`${this.apiUrl}/users`, payload);
+  }
+
+  signin(email: string, password: string): Observable<any> {
     const payload = { email, password };
-    return this.http.post(`${this.apiUrl}/auth/login`, payload); // Ensure URL uses backticks
+    return this.http.post(`${this.apiUrl}/auth/login`, payload);
   }
 }
