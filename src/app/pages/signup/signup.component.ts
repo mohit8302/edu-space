@@ -25,9 +25,11 @@ export class SignupComponent {
       .subscribe({
         next: (response) => {
           console.log('Sign Up successful:', response);
+          alert("Sign Up Successful.");
         },
         error: (err) => {
           console.error('Sign Up failed:', err);
+          alert("Sign Up Faile.");
         },
       });
   }

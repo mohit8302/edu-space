@@ -22,9 +22,11 @@ export class LoginComponent {
     event.preventDefault();
     this.authService.signin(this.email, this.password).subscribe({
       next: (response) => {
+        alert("Login Successful");
         console.log('Login successful:', response);
       },
       error: (err) => {
+        alert("Login Failed");
         console.error('Login failed:', err);
       },
     });

@@ -1,10 +1,21 @@
 <div class="main">
-  <div class="sidebarContainer">
+  <div class="sidebarContainer" [ngClass]="{ hidden: isLoginOrSignupRoute() }">
     <app-sidebar />
   </div>
-  <div class="contentContainer">
-    <app-navbar />
-    <div class="routeComponents">
+  <div
+    class="flex flex-col max-h-screen overflow-y-auto"
+    [ngClass]="{
+      'w-[85%]': !isLoginOrSignupRoute(),
+      'w-[100%]': isLoginOrSignupRoute()
+    }"
+  >
+    <app-navbar [ngClass]="{ hidden: isLoginOrSignupRoute() }" />
+    <div
+      [ngClass]="{
+        'p-[25px]': !isLoginOrSignupRoute(),
+        'p-0': isLoginOrSignupRoute()
+      }"
+    >
       <router-outlet />
     </div>
   </div>
