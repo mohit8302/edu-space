@@ -1,27 +1,49 @@
-<div>
-  <h1>Sign Up</h1>
-  <form (submit)="onSubmit($event)">
-    <input
-      type="text"
-      name="firstName"
-      placeholder="Username"
-      [(ngModel)]="username"
-      required
-    />
-    <input
-      type="email"
-      name="email"
-      placeholder="Email"
-      [(ngModel)]="email"
-      required
-    />
-    <input
-      type="password"
-      name="password"
-      placeholder="Password"
-      [(ngModel)]="password"
-      required
-    />
-    <button type="submit">Sign Up</button>
-  </form>
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold text-center mb-4">Join us today!</h1>
+    <p class="text-center text-gray-600 mb-6">
+      Sign up now to become a member.
+    </p>
+    <form (submit)="onSubmit($event)">
+      <div class="mb-4">
+        <input
+          type="text"
+          placeholder="Enter Name"
+          [(ngModel)]="username"
+          name="username"
+          class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <input
+          type="email"
+          placeholder="Enter Email"
+          [(ngModel)]="email"
+          name="email"
+          class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <input
+          type="password"
+          placeholder="Choose A Password"
+          [(ngModel)]="password"
+          name="password"
+          class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
+      >
+        Signup
+      </button>
+    </form>
+    <p class="text-center text-gray-600 mt-4">
+      Already a member? <a href="/login" class="text-blue-500">Login Here</a>
+    </p>
+  </div>
 </div>
