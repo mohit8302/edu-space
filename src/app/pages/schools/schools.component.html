@@ -1,5 +1,5 @@
 <!-- schools.component.html -->
-<h1>School Management</h1>
+<h1 class="title">School Management</h1>
 <div class="main-container">
   <div class="sidebar">
     <button class="add-school-btn">+ Add New School</button>
@@ -71,149 +71,55 @@
   </div>
 
   <div class="schools-container">
-    <div class="filters">
-      <span>Filters</span>
-      <div class="filter-dropdowns">
-        <div class="dropdown">
-          <button
-            class="dropbtn"
-            (click)="toggleDropdown('status'); $event.stopPropagation()"
-            [ngClass]="{ active: isStatusDropdownOpen }"
-          >
-            Status
-          </button>
-          <div class="dropdown-content" *ngIf="isStatusDropdownOpen">
-            <a (click)="filterByStatus('Active'); toggleDropdown('status')"
-              >Active</a
-            >
-            <a (click)="filterByStatus('Inactive'); toggleDropdown('status')"
-              >Inactive</a
-            >
-            <a (click)="filterByStatus(''); toggleDropdown('status')">All</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button
-            class="dropbtn"
-            (click)="toggleDropdown('attendance'); $event.stopPropagation()"
-            [ngClass]="{ active: isAttendanceDropdownOpen }"
-          >
-            Attendance
-          </button>
-          <div class="dropdown-content" *ngIf="isAttendanceDropdownOpen">
-            <a
-              (click)="filterByAttendance('High'); toggleDropdown('attendance')"
-              >High</a
-            >
-            <a
-              (click)="
-                filterByAttendance('Medium'); toggleDropdown('attendance')
-              "
-              >Medium</a
-            >
-            <a (click)="filterByAttendance('Low'); toggleDropdown('attendance')"
-              >Low</a
-            >
-            <a (click)="filterByAttendance(''); toggleDropdown('attendance')"
-              >All</a
-            >
-          </div>
-        </div>
-        <div class="dropdown">
-          <button
-            class="dropbtn"
-            (click)="toggleDropdown('location'); $event.stopPropagation()"
-            [ngClass]="{ active: isLocationDropdownOpen }"
-          >
-            Location
-          </button>
-          <div class="dropdown-content" *ngIf="isLocationDropdownOpen">
-            <a
-              (click)="
-                filterByLocation('Location 1'); toggleDropdown('location')
-              "
-              >Location 1</a
-            >
-            <a
-              (click)="
-                filterByLocation('Location 2'); toggleDropdown('location')
-              "
-              >Location 2</a
-            >
-            <a
-              (click)="
-                filterByLocation('Location 3'); toggleDropdown('location')
-              "
-              >Location 3</a
-            >
-            <a (click)="filterByLocation(''); toggleDropdown('location')"
-              >All</a
-            >
-          </div>
-        </div>
-      </div>
-      <input
-        type="text"
-        placeholder="Q Search schools"
-        class="search-schools"
-      />
-    </div>
-
     <div class="school-grid">
-      <div class="school-card" *ngFor="let school of filteredSchools">
-        <div class="card-content">
-          <div class="school-header">
-            <img
-              class="school-icon"
-              src="/assets/icons/school.png"
-              alt="School Icon"
-            />
-            <div class="school-header-text">
-              <div class="school-name">{{ school.name }}</div>
-              <div class="school-description">
-                Lorem ipsum dolor sit amet, consectetur
+      <div *ngIf="schools.length > 0">
+        <div class="grid-container">
+          <div
+            *ngFor="let school of schools"
+            class="flex items-center justify-between gap-3 bg-white w-full p-4 rounded-lg border min-h-[100px]"
+          >
+            <div class="flex gap-3">
+              <div class="flex flex-col gap-2">
+                <!-- <img
+                  [src]="'assets/images/' + school.logo"
+                  alt=""
+                  class="w-[65px]"
+                /> -->
+                <img src="assets/images/school_icon.png" />
+                <div class="flex items-center justify-center gap-2 w-full">
+                  <div
+                    class="themeColorBox"
+                    [style.background-color]="school.theme_colors.primary"
+                  ></div>
+                  <div
+                    class="themeColorBox"
+                    [style.background-color]="school.theme_colors.secondary"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <p class="block text-[17px]">{{ school.name }}</p>
+                <p class="block text-sm opacity-50">{{ school.description }}</p>
+                <div class="flex items-center gap-2 mt-2 schoolIcons">
+                  <mat-icon fontIcon="chat"></mat-icon>
+                  <mat-icon fontIcon="person"></mat-icon>
+                  <mat-icon fontIcon="edit"></mat-icon>
+                  <mat-icon fontIcon="info"></mat-icon>
+                  <mat-icon fontIcon="analytics"></mat-icon>
+                </div>
               </div>
             </div>
-            <div
-              class="school-status"
-              [ngClass]="{
-                active: school.status === 'Active',
-                inactive: school.status === 'Inactive'
-              }"
-            >
-              {{ school.status }}
+            <div class="h-[70%] flex flex-col gap-5 items-center justify-between">
+              <p class="statusBox">Active</p>
+              <p class="text-[11px] text-end">2024-09-09</p>
             </div>
           </div>
-          <div class="school-footer">
-            <div class="footer-colors">
-              <span class="footer-color red"></span>
-              <span class="footer-color blue"></span>
-              <span class="footer-color gray"></span>
-            </div>
-            <div class="toolbar">
-              <button class="toolbar-btn">
-                <img src="/assets/icons/chat.png" alt="Comments" />
-              </button>
-              <button class="toolbar-btn">
-                <img src="/assets/icons/user.png" alt="Users" />
-              </button>
-              <button class="toolbar-btn">
-                <img src="/assets/icons/pencil.png" alt="Edit" />
-              </button>
-              <button class="toolbar-btn">
-                <img src="/assets/icons/info.png" alt="Info" />
-              </button>
-              <button class="toolbar-btn">
-                <img src="/assets/icons/stats.png" alt="Stats" />
-              </button>
-            </div>
-          </div>
-          <div class="school-date">{{ school.date1 }}</div>
         </div>
       </div>
+
+      <div *ngIf="schools.length === 0">
+        <p>No schools found.</p>
+      </div>
     </div>
-  </div>
-  <div class="showing-results">
-    Showing {{ filteredSchools.length }} of {{ schools.length }}
   </div>
 </div>
