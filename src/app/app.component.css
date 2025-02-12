@@ -3,6 +3,9 @@
     height: 100vh;
 }
 
+.app-sidebar {
+    min-height: 100rem;
+}
 
 
 

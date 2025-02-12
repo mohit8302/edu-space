@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { DataConfigComponent } from './pages/data-config/data-config.component';
 import { AlertConfigComponent } from './pages/alert-config/alert-config.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { AddSchoolComponent } from './components/add-school/add-school.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { SettingsComponent } from './pages/settings/settings.component';
     FeedbackComponent,
     DataConfigComponent,
     AlertConfigComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddSchoolComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
