@@ -1,75 +1,57 @@
-<div class="navBarContainer">
-  <div class="navBarLeft">
-    <mat-icon fontIcon="menu" id="menuIcon" />
-    <div class="searchContainer">
-      <mat-icon fontIcon="search" class="searchIcon" />
-      <input type="text" placeholder="Ask me anything" id="searchInput" />
-      <button id="searchButton">Search</button>
+<div class="navbar">
+  <!-- Brand and Search Bar Container -->
+  <div class="navbar-left">
+    <div class="navbar-brand">
+      <mat-icon fontIcon="menu"></mat-icon>
     </div>
+    
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <mat-icon>search</mat-icon>
+      <input type="text" placeholder="Ask me anything" (keyup.enter)="performSearch(searchInput.value)" #searchInput />
+     
+        <button id="search">search</button>
+      
+    </div>
+  </div>
 
-    <li [routerLink]="['/login']">
-      <div
-        class="navItem"
-        routerLinkActive="activeNavItem"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <mat-icon fontIcon="login"></mat-icon>
-        <h4>Login</h4>
+  <!-- Navigation Links and Profile -->
+  <div class="navbar-end flex space-x-6">
+    <ng-container *ngIf="!isLoggedIn">
+      
+      <!-- Login Link with Icon Above Text -->
+      <div class="flex flex-col items-center">
+        <mat-icon class="text-3xl text-gray-600">login</mat-icon>
+        <a [routerLink]="['/login']" class="nav-link text-sm text-gray-700 hover:text-blue-500 mt-1">Login</a>
       </div>
-    </li>
-    <li [routerLink]="['/signup']">
-      <div
-        class="navItem"
-        routerLinkActive="activeNavItem"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <mat-icon fontIcon="login"></mat-icon>
-        <h4>Signup</h4>
+      
+      <!-- Sign Up Link with Icon Above Text -->
+      <div class="flex flex-col items-center">
+        <mat-icon class="text-3xl text-gray-600">person_add</mat-icon>
+        <a [routerLink]="['/signup']" class="nav-link text-sm text-gray-700 hover:text-blue-500 mt-1">Sign Up</a>
       </div>
-    </li>
+  
+    </ng-container>
   </div>
-  <div class="navBarRight">
-    <img
-      src="assets/icons/notification_icon.png"
-      alt=""
-      id="notification_icon"
-    />
-    <div class="profileIconContainer" (click)="toggleMenu()">
-      <img src="assets/icons/person.png" alt="" id="userAvatar" />
-      <div>
-        <h5 id="name">John Doe</h5>
-        <h6 id="role">Admin</h6>
+  
+    <div *ngIf="isLoggedIn" class="profileIconContainer" (click)="toggleMenu()">
+      <mat-icon>account_circle</mat-icon>
+      <span class="username">{{ userName }}</span>
+
+      <div class="dropdown-menu" *ngIf="showMenu">
+        <div class="menu-item" (click)="navigateToProfile()">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </div>
+        <div class="menu-item" (click)="navigateToSettings()">
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </div>
+        <div class="menu-item logout" (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="navMenuContainer" *ngIf="showMenu">
-    <ul>
-      <li>
-        <img
-          class="navMenuIcon"
-          src="assets/icons/manage_account.png"
-          alt=""
-        /><span>Manage Account</span>
-      </li>
-      <li>
-        <img
-          class="navMenuIcon"
-          src="assets/icons/change_password.png"
-          alt=""
-        /><span>Change Password</span>
-      </li>
-      <li>
-        <img
-          class="navMenuIcon"
-          src="assets/icons/activity_log.png"
-          alt=""
-        /><span>Activity Log</span>
-      </li>
-      <li>
-        <img class="navMenuIcon" src="assets/icons/log_out.png" alt="" /><span
-          >Log out</span
-        >
-      </li>
-    </ul>
-  </div>
-</div>
+

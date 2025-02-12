@@ -1,0 +1,49 @@
+button:hover {
+  opacity: 0.8;
+}
+.filters-section {
+  margin-bottom: 24px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.filter-groups {
+  display: flex;
+  gap: 16px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4785FF;
+  cursor: pointer;
+}
+
+.filter-label1::before {
+  content: "•";
+  color:#400ae0;
+  margin-right: 4px;
+}
+.filter-label2::before {
+  content: "•";
+  color:#ed8311;
+  margin-right: 4px;
+}
+.filter-label3::before {
+  content: "•";
+  color:#ed112e;
+  margin-right: 4px;
+}
+
+.filter-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}

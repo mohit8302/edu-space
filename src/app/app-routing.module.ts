@@ -9,12 +9,19 @@ import { AlertConfigComponent } from './pages/alert-config/alert-config.componen
 import { SettingsComponent } from './pages/settings/settings.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { GeneralsettingComponent } from './pages/schools/generalsetting/generalsetting.component';
+import { CommunicationComponent } from './pages/schools/communication/communication.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'schools', component: SchoolsComponent },
+  { path: 'schools',
+     component: SchoolsComponent,
+    children:[
+      {path:'',component:GeneralsettingComponent},
+      {path:'communication',component:CommunicationComponent}
+    ] },
   { path: 'users', component: UsersComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'data-config', component: DataConfigComponent },
