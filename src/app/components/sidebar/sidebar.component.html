@@ -1,0 +1,84 @@
+<div class="sidebar bg-white min-h-screen lg:w-[238px] flex flex-col justify-between"
+    [ngClass]="{'sidebar-collapsed': !isSidebarVisible}">
+    <div>
+        <div class="logoContainer flex items-center justify-center py-4">
+            <img src="assets/logo.png" alt="Logo" />
+        </div>
+        <div class="linksContainer">
+            <ul>
+                <li [routerLink]="['/']">
+                    <div class="navItem flex items-center gap-2 max-w-[70%] rounded-md p-2 my-2   mx-auto cursor-pointer "
+                        routerLinkActive="activeNavItem" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon fontIcon="dashboard"></mat-icon>
+                        <h4 class="font-600 text-[14px]">Dashboard</h4>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="navSubTitle max-w-[70%] mx-auto opacity-30 text-sm">
+                        <h5 class="font-bold">Customer</h5>
+                    </div>
+                </li>
+
+                <li [routerLink]="['/schools']">
+                    <div class="navItem flex items-center gap-2 max-w-[70%] rounded-md p-2 my-2   mx-auto cursor-pointer"
+                        routerLinkActive="activeNavItem" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon fontIcon="location_city"></mat-icon>
+                        <h4 class="font-600 text-[14px]">Schools</h4>
+                    </div>
+                </li>
+
+                <li [routerLink]="['/users']">
+                    <div class="navItem flex items-center gap-2 max-w-[70%] rounded-md p-2 my-2   mx-auto cursor-pointer"
+                        routerLinkActive="activeNavItem" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon fontIcon="people"></mat-icon>
+                        <h4 class="font-600 text-[14px]">Users</h4>
+                    </div>
+                </li>
+
+                <li [routerLink]="['/feedback']">
+                    <div class="navItem flex items-center gap-2 max-w-[70%] rounded-md p-2 my-2   mx-auto cursor-pointer"
+                        routerLinkActive="activeNavItem" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon fontIcon="chat"></mat-icon>
+                        <h4 class="font-600 text-[14px]">Feedback</h4>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="navSubTitle max-w-[70%] mx-auto opacity-30 text-sm">
+                        <h5 class="font-bold">Configuration</h5>
+                    </div>
+                </li>
+
+                <li [routerLink]="['/data-config']">
+                    <div class="navItem flex items-center gap-2 max-w-[70%] rounded-md p-2 my-2   mx-auto cursor-pointer"
+                        routerLinkActive="activeNavItem" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon fontIcon="storage"></mat-icon>
+                        <h4 class="font-600 text-[14px]">Data Config</h4>
+                    </div>
+                </li>
+
+                <li [routerLink]="['/alert-config']">
+                    <div class="navItem flex items-center gap-2 max-w-[70%] rounded-md p-2 my-2   mx-auto cursor-pointer"
+                        routerLinkActive="activeNavItem" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon fontIcon="warning"></mat-icon>
+                        <h4 class="font-600 text-[14px]">Alert Config</h4>
+                    </div>
+                </li>
+
+                <li [routerLink]="['/settings']">
+                    <div class="navItem flex items-center gap-2 max-w-[70%] rounded-md p-2 my-2   mx-auto cursor-pointer"
+                        routerLinkActive="activeNavItem" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon fontIcon="settings"></mat-icon>
+                        <h4 class="font-600 text-[14px]">Settings</h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidebarFooter max-w-[70%] mx-auto text-center mt-3">
+        <h4 class="font-bold text-xl ">v2.3.4</h4>
+        <h5 class="font-bold text-[14px]">Administrator Portal</h5>
+        <h5 class="font-light text-[10px] opacity-50 pb-2">Last Updated At 2024-09-07 12:23</h5>
+    </div>
+</div>

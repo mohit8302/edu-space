@@ -1,22 +1,8 @@
-<div class="main">
-  <div class="sidebarContainer" [ngClass]="{ hidden: isLoginOrSignupRoute() }">
-    <app-sidebar />
-  </div>
-  <div
-    class="flex flex-col max-h-screen overflow-y-auto"
-    [ngClass]="{
-      'w-[85%]': !isLoginOrSignupRoute(),
-      'w-[100%]': isLoginOrSignupRoute()
-    }"
-  >
-    <app-navbar [ngClass]="{ hidden: isLoginOrSignupRoute() }" />
-    <div
-      [ngClass]="{
-        'p-[25px]': !isLoginOrSignupRoute(),
-        'p-0': isLoginOrSignupRoute()
-      }"
-    >
-      <router-outlet />
+<div class="app-container flex">
+    <app-sidebar [isSidebarVisible]="isSidebarVisible"
+        [ngClass]="{'sidebar-collapsed': !isSidebarVisible}"></app-sidebar>
+    <div class="flex-1" [ngClass]="{'navbar-full-width': !isSidebarVisible}">
+        <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+        <router-outlet></router-outlet>
     </div>
-  </div>
 </div>

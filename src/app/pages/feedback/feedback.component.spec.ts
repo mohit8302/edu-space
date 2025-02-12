@@ -8,7 +8,7 @@ describe('FeedbackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FeedbackComponent]
+      declarations: [FeedbackComponent]
     })
     .compileComponents();
 

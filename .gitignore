@@ -5,8 +5,6 @@
 /tmp
 /out-tsc
 /bazel-out
-/documentation
-/.vscode
 
 # Node
 /node_modules
@@ -42,4 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-.vercel

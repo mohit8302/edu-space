@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-data-config',
-  imports: [],
+  standalone: false,
   templateUrl: './data-config.component.html',
-  styleUrl: './data-config.component.scss'
+  styleUrl: './data-config.component.css'
 })
 export class DataConfigComponent {
 

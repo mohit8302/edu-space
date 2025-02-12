@@ -1,0 +1,16 @@
+.search-button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.menu-bar-icon {
+    transition: transform 0.3s ease;
+}
+
+.menu-bar-icon:hover {
+    transform: rotate(90deg);
+}
