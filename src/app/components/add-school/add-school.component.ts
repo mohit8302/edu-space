@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+import { SchoolService } from '../../services/school.service';
 @Component({
   selector: 'app-add-school',
   standalone: false,
@@ -10,20 +10,27 @@ import { NgForm } from '@angular/forms';
 export class AddSchoolComponent {
   school = {
     name: '',
-    aboutschool: '',
-    phone: '',
-    username:'',
+    about: '',
+    username: '',
+    address: '',
     city: '',
     postcode: '',
+    contact_number: '',
     email: '',
-    streetaddress: '',
-    country: '',    
+    country: ''
   };
 
-  onSubmit(schoolForm: NgForm) {
-    if (schoolForm.valid) {
-      console.log('Form Submitted!', this.school);
-      // Add your form submission logic here
+
+  constructor(private schoolService: SchoolService) {}
+  
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      this.schoolService.addSchool(this.school).subscribe((newSchool) => {
+        console.log('School added:', newSchool);
+        // Reset the form
+        form.resetForm();
+      });
     }
   }
+
 }
