@@ -47,4 +47,6 @@ npm-debug.log
 yarn-error.log
 
 
-/educase-backend/package-lock.json
+/educase-backend/
+package-lock.json
+.env

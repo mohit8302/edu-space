@@ -1,10 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+
 
 // Middleware
 app.use(bodyParser.json());
@@ -12,11 +15,7 @@ app.use(cors());
 
 // PostgreSQL connection
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'EduSpace',
-  password: 'password',
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
 });
 
 // API routes
@@ -36,12 +35,12 @@ app.get('/api/schools', async (req, res) => {
 });
 
 app.post('/api/schools', async (req, res) => {
-  const { name, about, username, address, city, postcode, contact_number, email, country } = req.body;
+  const { name, about, username, address, city, postcode, contact_number, email, country, themeColor, PrimaryColor, SecondaryColor } = req.body;
   console.log('Received data:', req.body); // Log the received data
   try {
     const result = await pool.query(
-      'INSERT INTO schools (name, about, username, address, city, postcode, contact_number, email, country) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
-      [name, about, username, address, city, postcode, contact_number, email, country]
+      'INSERT INTO schools (name, about, username, address, city, postcode, contact_number, email, country, themeColor, PrimaryColor, SecondaryColor) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *',
+      [name, about, username, address, city, postcode, contact_number, email, country, themeColor, PrimaryColor, SecondaryColor]
     );
     res.json(result.rows[0]);
   } catch (err) {

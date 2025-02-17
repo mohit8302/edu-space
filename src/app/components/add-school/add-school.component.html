@@ -1,7 +1,7 @@
 <div class="max-w-[738px] mx-auto bg-white shadow-md rounded">
     <div class="flex justify-between items-center border-b border-[#ECECEC] p-2 rounded-t">
         <h2 class="text-[24px] md:text-[24px] text-[#ADADAD] font-bold">Add New School</h2>
-        <button class="text-gray-600 hover:text-gray-900">
+        <button class="text-gray-600 hover:text-gray-900 cursor-pointer" (click)="closeModal()">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24"
                 stroke="#ADADAD">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -20,24 +20,33 @@
                     class="bg-blue-500 text-white text-[6px] md:text-[8px] py-1 px-2 rounded-full mb-4 w-[60px] h-[15px] md:w-[80px] md:h-[20px]">Upload
                     Image</button>
                 <span class="text-[12px] md:text-[15px] justify-start mb-1 font-[600] text-[#959595]">Theme Color</span>
-                <div class="flex space-x-2">
-                    <button
-                        class="w-[20px] h-[25px] md:w-[28px] md:h-[30px] bg-[#CBCBCB] rounded text-white font-semibold">P</button>
-                    <button
-                        class="w-[20px] h-[25px] md:w-[28px] md:h-[30px] bg-[#CBCBCB] rounded text-white font-semibold">S</button>
-                    <button
-                        class="w-[20px] h-[25px] md:w-[28px] md:h-[30px] bg-[#CBCBCB] rounded text-white font-semibold">T</button>
+                <div class="flex space-x-0">
+                    <input type="color" id="primary_color" required [(ngModel)]="school.PrimaryColor"
+                        name="PrimaryColor"
+                        class="rounded-full w-[35px] h-[35px] md:w-[47px] md:h-[47px] py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
+                        placeholder="Primary Color">
+                    <input type="color" id="secondary_color" required [(ngModel)]="school.SecondaryColor"
+                        name="SecondaryColor"
+                        class="rounded-full w-[35px] h-[35px] md:w-[47px] md:h-[47px] py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
+                        placeholder="Secondary Color">
+                    <input type="color" id="theme_color" required [(ngModel)]="school.themeColor" name="themeColor"
+                        class="rounded-full w-[35px] h-[35px] md:w-[47px] md:h-[47px] py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
+                        placeholder="Theme Color">
                 </div>
             </div>
 
             <div class="col-span-3 bg-white p-4 rounded">
                 <div class="mb-4">
-                    <input type="text" id="name" required [(ngModel)]="school.name" name="name" #name="ngModel"
+                    <input type="text" id="name" required minlength="4" [(ngModel)]="school.name" name="name"
+                        #name="ngModel"
                         class="border-[#D1D1D1] border rounded w-full h-[50px] md:h-[71px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                         placeholder="School Name">
                     <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-red-500 text-xs italic">
                         <div *ngIf="name.errors?.['required']">
                             School name is required.
+                        </div>
+                        <div *ngIf="name.errors?.['minlength']">
+                            School name must be at least 4 characters long.
                         </div>
                     </div>
                 </div>
@@ -95,8 +104,8 @@
                 </div>
 
                 <div class="mb-4">
-                    <input type="text" id="postcode" required [(ngModel)]="school.postcode" name="postcode"
-                        #postcode="ngModel"
+                    <input type="text" id="postcode" required pattern="^[0-9]*$" [(ngModel)]="school.postcode"
+                        name="postcode" #postcode="ngModel"
                         class="border-[#D1D1D1] border rounded w-full h-[35px] md:h-[47px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                         placeholder="Postcode">
                     <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)"
@@ -104,12 +113,15 @@
                         <div *ngIf="postcode.errors?.['required']">
                             Postcode is required.
                         </div>
+                        <div *ngIf="postcode.errors?.['pattern']">
+                            Postcode must be numeric.
+                        </div>
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <input type="text" id="contact_number" required [(ngModel)]="school.contact_number"
-                        name="contact_number" #contact_number="ngModel"
+                    <input type="text" id="contact_number" required pattern="^[0-9]*$"
+                        [(ngModel)]="school.contact_number" name="contact_number" #contact_number="ngModel"
                         class="border-[#D1D1D1] border rounded w-full h-[35px] md:h-[47px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                         placeholder="Contact Number">
                     <div *ngIf="contact_number.invalid && (contact_number.dirty || contact_number.touched)"
@@ -117,16 +129,23 @@
                         <div *ngIf="contact_number.errors?.['required']">
                             Contact number is required.
                         </div>
+                        <div *ngIf="contact_number.errors?.['pattern']">
+                            Contact number must be numeric.
+                        </div>
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <input type="email" id="email" required [(ngModel)]="school.email" name="email" #email="ngModel"
+                    <input type="email" id="email" required email [(ngModel)]="school.email" name="email"
+                        #email="ngModel"
                         class="border-[#D1D1D1] border rounded w-full h-[35px] md:h-[47px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                         placeholder="Email Address">
                     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-red-500 text-xs italic">
                         <div *ngIf="email.errors?.['required']">
                             Email is required.
+                        </div>
+                        <div *ngIf="email.errors?.['email']">
+                            Invalid email address.
                         </div>
                     </div>
                 </div>
