@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './schools.component.css'
 })
 export class SchoolsComponent {
-  isAddSchoolVisible = true;
+  isAddSchoolVisible = false;
 
   handleClose(): void {
     this.isAddSchoolVisible = false;
+  }
+
+  handleAddSchool(): void {
+    this.isAddSchoolVisible = true;
   }
 }
