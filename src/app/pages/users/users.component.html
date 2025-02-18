@@ -1,1 +1,63 @@
-<p>users works!</p>
+<div class="container mx-auto p-6 max-w-screen-xl">
+    <div class="header flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-semibold text-gray-900">User Management</h1>
+        <a [routerLink]="['/add-new-users']" class="bg-[#4785FF] text-white px-2 py-1 rounded-md text-sm font-medium cursor-pointer">
+            + Add New User
+        </a>
+        
+
+        
+    </div>
+
+    <div class="filters-section mb-6">
+        <div class="filters flex items-center gap-4 mb-4">
+            <span>Filters</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.66667 1H12.3333C12.5101 1 12.6797 1.07024 12.8047 1.19526C12.9298 1.32029 13 1.48986 13 1.66667V2.724C13 2.9008 12.9297 3.07034 12.8047 3.19533L8.52867 7.47133C8.40363 7.59633 8.33337 7.76587 8.33333 7.94267V12.146C8.33333 12.2473 8.31023 12.3473 8.26578 12.4384C8.22133 12.5295 8.1567 12.6092 8.07681 12.6716C7.99692 12.7339 7.90387 12.7772 7.80473 12.7982C7.70559 12.8192 7.60297 12.8173 7.50467 12.7927L6.17133 12.4593C6.02717 12.4232 5.89921 12.34 5.80777 12.2228C5.71634 12.1056 5.66667 11.9613 5.66667 11.8127V7.94267C5.66663 7.76587 5.59637 7.59633 5.47133 7.47133L1.19533 3.19533C1.0703 3.07034 1.00004 2.9008 1 2.724V1.66667C1 1.48986 1.07024 1.32029 1.19526 1.19526C1.32029 1.07024 1.48986 1 1.66667 1Z" stroke="#4A4A4A" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <div class="filter-tags flex gap-2 flex-wrap mb-4">
+            <span class="bg-[#dbeafe] text-[#1e3a8a] px-3 py-1 rounded-full text-sm font-medium">Demo School (4)<i class="fas fa-times ml-2"></i></span>
+            <span class="bg-[#ffe4e6] text-[#f43f5e] px-3 py-1 rounded-full text-sm font-medium">External<i class="fas fa-times ml-2"></i></span>
+            <span class="bg-[#f0f9ff] text-[#3b82f6] px-3 py-1 rounded-full text-sm font-medium">Morning sessions<i class="fas fa-times ml-2"></i></span>
+            <span class="bg-[#e9d5ff] text-[#9333ea] px-3 py-1 rounded-full text-sm font-medium">Brighton<i class="fas fa-times ml-2"></i></span>
+        </div>
+
+        <div class="search-box flex items-center bg-[#f4f4f4] px-3 py-2 rounded-lg">
+            <i class="fas fa-search text-gray-600"></i>
+            <input type="text" placeholder="Search users" class="border-none outline-none px-2 py-1 ml-2 w-48 rounded-lg">
+        </div>
+    </div>
+
+    <div class="rectangle-container">
+        <div class="users-list">
+            <div class="user-card bg-white shadow-lg rounded-lg overflow-hidden mb-4">
+                <div class="user-info flex p-4 gap-4">
+                    <img src="assets/images/thomas.png" alt="Thomas Reuters" class="w-12 h-12 rounded-full">
+                    <div class="user-details flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-900">Thomas Reuters</h3>
+                        <p class="text-sm text-gray-600">Demo School Lt. · Headmaster, Admin</p>
+                    </div>
+                    <span class="bg-[#4CAF50] text-white px-4 py-1 rounded-full text-xs">Active</span>
+                </div>
+
+                <div class="user-actions flex gap-3 mt-2 text-lg text-gray-600 cursor-pointer">
+                    <i class="fas fa-clipboard hover:text-[#4785FF]"></i>
+                    <i class="fas fa-pen hover:text-[#4785FF]"></i>
+                    <i class="fas fa-eye hover:text-[#4785FF]"></i>
+                    <i class="fas fa-trash hover:text-[#4785FF]"></i>
+                </div>
+
+                <div class="user-date mt-2 text-sm text-gray-500">
+                    <span>Created on: 16th Dec, 2024</span>
+                </div>
+
+                <div class="line h-[1px] bg-[#e0e0e0] my-4"></div>
+            </div>
+
+            <!-- Repeat user cards here -->
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

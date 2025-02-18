@@ -11,6 +11,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { GeneralsettingComponent } from './pages/schools/generalsetting/generalsetting.component';
 import { CommunicationComponent } from './pages/schools/communication/communication.component';
+import { AddNewUserComponent } from './pages/users/add-new-user/add-new-user.component';
+import { AddSchoolComponent } from './pages/schools/add-school/add-school.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -22,7 +24,9 @@ const routes: Routes = [
       {path:'',component:GeneralsettingComponent},
       {path:'communication',component:CommunicationComponent}
     ] },
-  { path: 'users', component: UsersComponent },
+  { path: 'add-school',component:AddSchoolComponent },
+  { path: 'users',component: UsersComponent },
+  { path: 'add-new-users',component:AddNewUserComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'data-config', component: DataConfigComponent },
   { path: 'alert-config', component: AlertConfigComponent },
