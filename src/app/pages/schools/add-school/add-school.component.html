@@ -11,7 +11,7 @@
     <form (ngSubmit)="onSave(schoolForm)" #schoolForm="ngForm">  <div class="grid grid-cols-1 md:grid-cols-4 gap-2 p-4 border-b border-[#ECECEC]">
             <div class="col-span-1 flex flex-col items-center py-4 rounded">
                 <div *ngIf="previewImage" class="flex flex-col items-center">
-                    <p class="text-gray-700 text-sm">Logo Preview:</p>
+                    <p class="text-gray-700 text-sm"></p>
                     <img [src]="previewImage" alt="Logo Preview" class="w-24 h-24 rounded-md shadow-md">
                 </div><br>
                 <input type="file" (change)="onFileSelected($event)" accept="image/*" class="hidden" #fileInput>

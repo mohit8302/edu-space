@@ -1,47 +1,71 @@
 <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-    <h2 class="text-xl font-semibold text-gray-700 mb-4">Demo School 001</h2>
-  
-    <div class="flex items-center mb-4">
-      <div class="w-20 h-20 bg-gray-200 rounded-md flex items-center justify-center text-gray-600 font-bold text-lg">Avatar</div>
+  <h2 class="text-xl font-semibold text-gray-700 mb-4">Demo School 001</h2>
+
+  <div class="flex items-center mb-4">
+      <div class="w-20 h-20 bg-gray-200 rounded-md flex items-center justify-center text-gray-600 font-bold text-lg overflow-hidden" id="avatar-preview">
+          <img *ngIf="previewUrl" [src]="previewUrl" alt="Avatar preview" class="w-full h-full object-cover">
+          <span *ngIf="!previewUrl">Avatar</span>
+      </div>
       <div class="ml-4">
-        <button class="bg-white border border-blue-500 text-blue-500 px-3 py-1 rounded hover:bg-blue-100 mb-2">Choose Avatar</button>
-        <button class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Upload Picture</button>
+          <label for="avatar-upload" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 cursor-pointer">
+              Upload Picture
+          </label>
+          <input 
+              type="file" 
+              id="avatar-upload" 
+              (change)="onFileSelected($event)" 
+              accept="image/*"
+              class="hidden">
       </div>
-    </div>
-  
-    <div class="grid grid-cols-2 gap-4 mb-4">
-      <input type="text" placeholder="Mr" class="input">
-      <input type="text" placeholder="First Name" class="input">
-      <input type="text" placeholder="Last Name" class="input col-span-2">
-    </div>
-  
-    <div class="grid grid-cols-2 gap-4 mb-4">
-      <input type="text" placeholder="Username" class="input col-span-2">
-      <div>
-        <p class="text-sm text-gray-600 mb-1">Or choose from one below</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="text-sm text-gray-700">user-x993</span>
-          <span class="text-sm text-gray-700">user-x123</span>
-          <span class="text-sm text-gray-700">user-x723</span>
-          <span class="text-sm text-gray-700">usr-1234</span>
-          <span class="text-sm text-gray-700">usr-x723</span>
-          <span class="text-sm text-gray-700">txle-xq99</span>
-        </div>
-      </div>
-    </div>
-  
-    <div class="grid grid-cols-2 gap-4 mb-4">
-      <input type="text" placeholder="Street Address" class="input">
-      <input type="text" placeholder="Town/City" class="input">
-      <input type="text" placeholder="Postcode" class="input">
-      <input type="text" placeholder="Contact Number" class="input">
-      <input type="email" placeholder="Email Address" class="input">
-      <input type="text" placeholder="Designation" class="input">
-    </div>
-  
-    <div class="flex justify-end gap-4">
-      <button class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Close</button>
-      <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Add User</button>
-    </div>
   </div>
-  
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="grid grid-cols-2 gap-4 mb-4">
+          <select formControlName="title" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="Mr">Mr</option>
+              <option value="Ms">Ms</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Dr">Dr</option>
+          </select>
+          <input type="text" formControlName="firstName" placeholder="First Name" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" formControlName="lastName" placeholder="Last Name" class="input col-span-2 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-4">
+          <input type="text" formControlName="username" placeholder="Enter you preferred Username" class="input col-span-2 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <div>
+              <p class="text-sm text-gray-600 mb-1">Or choose from one below</p>
+              <div class="flex flex-wrap gap-2">
+                  <button type="button" *ngFor="let username of suggestedUsernames" (click)="selectSuggestedUsername(username)" class="username-option text-sm text-gray-700 border border-gray-300 rounded px-2 py-1 hover:bg-gray-100">{{username}}</button>
+              </div>
+          </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-4">
+          <input type="text" formControlName="streetAddress" placeholder="Street Address" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" formControlName="city" placeholder="Town/City" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" formControlName="postcode" placeholder="Postcode" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" formControlName="contactNumber" placeholder="Contact Number" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="email" formControlName="email" placeholder="Email Address" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <input type="text" formControlName="designation" placeholder="Designation" class="input border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div class="flex justify-end gap-4">
+          <button type="button" (click)="onClose()" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Close</button>
+          <button type="submit" [disabled]="isSubmitting" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 disabled:bg-gray-400">{{ isSubmitting ? 'Submitting...' : 'Add User' }}</button>
+      </div>
+
+      <div *ngIf="errorMessage" class="text-red-500 mt-2">{{ errorMessage }}</div>
+
+      <div *ngIf="isFieldInvalid('firstName')" class="text-red-500 mt-1">{{ getErrorMessage('firstName') }}</div>
+      <div *ngIf="isFieldInvalid('lastName')" class="text-red-500 mt-1">{{ getErrorMessage('lastName') }}</div>
+      <div *ngIf="isFieldInvalid('username')" class="text-red-500 mt-1">{{ getErrorMessage('username') }}</div>
+      <div *ngIf="isFieldInvalid('streetAddress')" class="text-red-500 mt-1">{{ getErrorMessage('streetAddress') }}</div>
+      <div *ngIf="isFieldInvalid('city')" class="text-red-500 mt-1">{{ getErrorMessage('city') }}</div>
+      <div *ngIf="isFieldInvalid('postcode')" class="text-red-500 mt-1">{{ getErrorMessage('postcode') }}</div>
+      <div *ngIf="isFieldInvalid('contactNumber')" class="text-red-500 mt-1">{{ getErrorMessage('contactNumber') }}</div>
+      <div *ngIf="isFieldInvalid('email')" class="text-red-500 mt-1">{{ getErrorMessage('email') }}</div>
+      <div *ngIf="isFieldInvalid('designation')" class="text-red-500 mt-1">{{ getErrorMessage('designation') }}</div>
+
+  </form>
+</div>
